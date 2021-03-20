@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { download, uploadToTwitter, fetchData, downloadJSON, cleanUsername } from "../utils/export";
+import { download, fetchData, downloadJSON, cleanUsername } from "../utils/export";
 import ThemeSelector from "../components/themes";
 
 const App = () => {
@@ -60,11 +60,6 @@ const App = () => {
     }
   };
 
-  const onShareTwitter = e => {
-    e.preventDefault();
-    uploadToTwitter(canvasRef.current);
-  };
-
   const draw = async () => {
     if (!canvasRef.current || !data) {
       setError("Something went wrong... Check back later.");
@@ -122,14 +117,6 @@ const App = () => {
             type="button"
           >
             Download the Image
-          </button>
-          or
-          <button
-            className="App-twitter-button"
-            onClick={onShareTwitter}
-            type="button"
-          >
-            Share on Twitter
           </button>
         </div>
 
